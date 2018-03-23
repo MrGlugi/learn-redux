@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 
 class Single extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div className={'single-photo'}>
