@@ -8,7 +8,7 @@ class Comments extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderComment = this.renderComment.bind(this);
   }
-  renderComment(comment, i) {
+  renderComment = (comment, i) => {
     return (
       <div className="comment" key={i}>
         <p>
@@ -27,14 +27,14 @@ class Comments extends Component {
         </p>
       </div>
     );
-  }
-  handleSubmit(e) {
+  };
+  handleSubmit = e => {
     e.preventDefault();
     const postId = this.props.match.params.postId;
     const author = this.author.value;
     const comment = this.comment.value;
     this.props.addComment(postId, author, comment);
-  }
+  };
   render() {
     return (
       <div className={'comments'}>

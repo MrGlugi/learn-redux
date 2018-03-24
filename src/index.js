@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-import createBrowserHistory from 'history/createBrowserHistory';
-
-import { ConnectedRouter } from 'react-router-redux';
+import { ConnectedRouter } from 'connected-react-router';
 
 import App from './components/App';
 
@@ -14,8 +12,7 @@ import store from './store';
 
 import { Route } from 'react-router-dom';
 
-export const history = createBrowserHistory();
-
+import { history } from './store.js';
 const router = (
   <Provider store={store}>
     <ConnectedRouter history={history}>
