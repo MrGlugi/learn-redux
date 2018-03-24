@@ -1,13 +1,11 @@
+/*
+  Check https://reactjs.org/docs/refs-and-the-dom.html to see recommended Ref syntax.
+*/
+
 import React, { Component } from 'react';
-import '../styles/App.css';
+// import '../styles/App.css';
 
 class Comments extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderComment = this.renderComment.bind(this);
-  }
   renderComment = (comment, i) => {
     return (
       <div className="comment" key={i}>

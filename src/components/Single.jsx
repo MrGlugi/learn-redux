@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import '../styles/App.css';
+import React from 'react';
+// import '../styles/App.css';
 import Photo from './Photo';
 import Comments from './Comments';
 
-class Single extends Component {
-  render() {
-    const postId = this.props.match.params.postId;
-    const i = this.props.posts.findIndex(post => post.code === postId);
-    const post = this.props.posts[i];
-    const postComments = this.props.comments[postId] || [];
-    return (
-      <div className={'single-photo'}>
-        <Photo i={i} post={post} {...this.props} />
-        <Comments postComments={postComments} {...this.props} />
-      </div>
-    );
-  }
-}
+const Single = props => {
+  const postId = props.match.params.postId;
+  const i = props.posts.findIndex(post => post.code === postId);
+  const post = props.posts[i];
+  const postComments = props.comments[postId] || [];
+  return (
+    <div className={'single-photo'}>
+      <Photo i={i} post={post} {...props} />
+      <Comments postComments={postComments} {...props} />
+    </div>
+  );
+};
 
 export default Single;

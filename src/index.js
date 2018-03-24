@@ -1,18 +1,23 @@
+/*
+  Check connected-react-router documentation and basic examples to better understand it.
+  Also see /store.js & reducers/index.js.
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
+import { ConnectedRouter } from 'connected-react-router';
+import { Provider } from 'react-redux';
+import { Route } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-import { ConnectedRouter } from 'connected-react-router';
-
+// Import component. Please see components/Main.jsx to see why routing was changed.
 import App from './components/App';
 
-import { Provider } from 'react-redux';
+import { history } from './store.js';
 import store from './store';
 
-import { Route } from 'react-router-dom';
+// Import css
+import './styles/style.styl';
 
-import { history } from './store.js';
 const router = (
   <Provider store={store}>
     <ConnectedRouter history={history}>

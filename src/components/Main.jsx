@@ -1,29 +1,32 @@
-import React, { Component } from 'react';
+/*
+  Because in react router v4 you don't nest <Routes /> they had to be moved here.
+  You can check https://stackoverflow.com/a/43311025/9271915 && official docs
+  (https://reacttraining.com/react-router/web/guides/philosophy).
+*/
+
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import '../styles/App.css';
+
+// import '../styles/App.css';
 import PhotoGrid from './PhotoGrid';
 import Single from './Single';
 
-class Main extends Component {
-  render() {
-    return (
-      <div>
-        <h1>
-          <Link to={'/'}>Reduxstagram</Link>
-        </h1>
-        <Route
-          exact
-          path={this.props.match.url}
-          component={() => <PhotoGrid {...this.props} />}
-        />
-        <Route
-          path={'/view/:postId'}
-          component={props => <Single {...this.props} {...props} />}
-        />
-      </div>
-    );
-  }
-}
+const Main = props => (
+  <div>
+    <h1>
+      <Link to={'/'}>Reduxstagram</Link>
+    </h1>
+    <Route
+      exact
+      path={props.match.url}
+      component={() => <PhotoGrid {...props} />} // props were passed instead of using React.cloneElement()
+    />
+    <Route
+      path={'/view/:postId'}
+      component={data => <Single {...props} {...data} />} // props were passed instead of using React.cloneElement()
+    />
+  </div>
+);
 
 export default Main;
