@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import '../styles/App.css';
+import Photo from './Photo';
+import Comments from './Comments';
 
 class Single extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
+    const postId = this.props.match.params.postId;
+    const i = this.props.posts.findIndex(post => post.code === postId);
+    const post = this.props.posts[i];
+    const postComments = this.props.comments[postId] || [];
     return (
       <div className={'single-photo'}>
-        <h1>I'm the single</h1>
+        <Photo i={i} post={post} {...this.props} />
+        <Comments postComments={postComments} {...this.props} />
       </div>
     );
   }

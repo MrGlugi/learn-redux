@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import '../styles/App.css';
 import PhotoGrid from './PhotoGrid';
 import Single from './Single';
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>
@@ -22,7 +19,7 @@ class Main extends Component {
         />
         <Route
           path={'/view/:postId'}
-          component={() => <Single {...this.props} />}
+          component={props => <Single {...this.props} {...props} />}
         />
       </div>
     );

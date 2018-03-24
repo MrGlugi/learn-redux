@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 import '../styles/App.css';
+import Transition from 'react-transition-group/Transition';
 
 class Photo extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { post, i, comments } = this.props;
     return (
@@ -19,7 +16,30 @@ class Photo extends Component {
               className={'grid-photo'}
             />
           </Link>
+          <Transition
+            name="like"
+            timeout={{
+              enter: 300,
+              exit: 500
+            }}
+          >
+            <span key={post.likes} className={'likes-heart'} />
+          </Transition>
         </div>
+        <figcaption>
+          <p>{post.caption}</p>
+          <div className={'control-buttons'}>
+            <button onClick={() => this.props.increment(i)} className={'likes'}>
+              &hearts; {post.likes}
+            </button>
+            <Link className={'button'} to={`/view/${post.code}`}>
+              <span className={'comment-count'}>
+                <span className={'speech-bouble'} />
+                {comments[post.code] ? comments[post.code].length : 0}
+              </span>
+            </Link>
+          </div>
+        </figcaption>
       </figure>
     );
   }
