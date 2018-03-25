@@ -15,8 +15,8 @@ import App from './components/App';
 import { history } from './store.js';
 import store from './store';
 
-// Import css
-import './styles/style.styl';
+// Import CSS
+import './styles/style.css';
 
 const router = (
   <Provider store={store}>

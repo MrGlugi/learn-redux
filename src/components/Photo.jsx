@@ -1,10 +1,10 @@
 /*
-  https://reactjs.org/docs/animation.html
+  https://github.com/reactjs/react-transition-group/tree/v1-stable
+  v1 was used in order not to break compatibility.
 */
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import '../styles/App.css';
-import Transition from 'react-transition-group/Transition';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 const Photo = props => {
   const { post, i, comments } = props;
@@ -18,15 +18,15 @@ const Photo = props => {
             className={'grid-photo'}
           />
         </Link>
-        <Transition
-          name="like"
-          timeout={{
-            enter: 300,
-            exit: 500
-          }}
+        <CSSTransitionGroup
+          transitionName="like"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={500}
         >
-          <span key={post.likes} className={'likes-heart'} />
-        </Transition>
+          <span key={post.likes} className="likes-heart">
+            {post.likes}
+          </span>
+        </CSSTransitionGroup>
       </div>
       <figcaption>
         <p>{post.caption}</p>
@@ -36,7 +36,7 @@ const Photo = props => {
           </button>
           <Link className={'button'} to={`/view/${post.code}`}>
             <span className={'comment-count'}>
-              <span className={'speech-bouble'} />
+              <span className={'speech-bubble'} />
               {comments[post.code] ? comments[post.code].length : 0}
             </span>
           </Link>

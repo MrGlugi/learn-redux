@@ -3,7 +3,6 @@
 */
 
 import React, { Component } from 'react';
-// import '../styles/App.css';
 
 class Comments extends Component {
   renderComment = (comment, i) => {
@@ -32,6 +31,7 @@ class Comments extends Component {
     const author = this.author.value;
     const comment = this.comment.value;
     this.props.addComment(postId, author, comment);
+    this.commentForm.reset();
   };
   render() {
     return (
