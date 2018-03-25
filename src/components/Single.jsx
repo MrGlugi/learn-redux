@@ -1,6 +1,7 @@
 import React from 'react';
-import Photo from './Photo';
+
 import Comments from './Comments';
+import Photo from './Photo';
 
 const Single = props => {
   const postId = props.match.params.postId;

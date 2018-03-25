@@ -12,8 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 // Import component. Please see components/Main.jsx to see why routing was changed.
 import App from './components/App';
 
-import { history } from './store.js';
-import store from './store';
+import store, { history } from './store';
 
 // Import CSS
 import './styles/style.css';
