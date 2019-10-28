@@ -22,30 +22,32 @@ to keep <CSSTransitionGroup /> component compatible with original one coded by W
 
 ## Notes:
 
-* src/index.js = reduxstagram.js
+- Node version should be >= 8.6.0
 
-* This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
+- src/index.js = reduxstagram.js
+
+- This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
   and formatted with Prettier.
 
-* It is possible to time travel between url changes using Dev Tools, thanks to
+- It is possible to time travel between url changes using Dev Tools, thanks to
   connected-react-router package (https://github.com/supasate/connected-react-router).
 
-* Styles (.styl) are outputted in single .css file (style.css) and that files is
+- Styles (.styl) are outputted in single .css file (style.css) and that files is
   imported in index.js. It was possible thanks to create-react-app-stylus package
   (https://www.npmjs.com/package/create-react-app-stylus).
 
-* One should delete contents of /actions, /components, /reducers, remove
+- One should delete contents of /actions, /components, /reducers, remove
   store.js and delete some code in index.js and then perform "yarn" in terminal
   to obtain clean project.
 
-* Before setting up Router please see comments in, among others, index.js & Main.jsx.
+- Before setting up Router please see comments in, among others, index.js & Main.jsx.
 
-* Also when setting up store please first check index.js, store.js & /reducers/index.js.
+- Also when setting up store please first check index.js, store.js & /reducers/index.js.
 
-* Lecture 17 (Error Tracking and Insights with Sentry) was skipped in this project,
+- Lecture 17 (Error Tracking and Insights with Sentry) was skipped in this project,
   if you want to get most up to date info check (https://www.npmjs.com/package/raven-js).
 
-* Lecture 18 (Hot Reloading Redux Reducers with webpack) doesn't apply, because Create
+- Lecture 18 (Hot Reloading Redux Reducers with webpack) doesn't apply, because Create
   React App takes care of hot reloading.
 
 **HUGE THANKS TO WES BOS FOR THIS AMAZING TUTORIAL! (https://learnredux.com/)**
